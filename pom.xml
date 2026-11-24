@@ -1,0 +1,180 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>EPAMTASKS</groupId>
+  <artifactId>EPAMTASKS</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>EPAMTASKS</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+
+    <selenium.version>4.53.0</selenium.version>
+    <testng.version>7.12.0</testng.version>
+    <restassured.version>5.5.6</restassured.version>
+    <surefire.version>3.5.2</surefire.version>
+    <jackson.version>2.18.2</jackson.version>
+    <extentreports.version>5.1.2</extentreports.version>
+
+    <!-- Default runtime / environment properties -->
+    <browser>chrome</browser>
+    <baseUrl>https://qa.example.com</baseUrl>
+  </properties>
+
+  <dependencies>
+
+    <!-- Selenium WebDriver -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- ExtentReports -->
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>${extentreports.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- TestNG -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Rest Assured -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${restassured.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JSON Path -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>json-path</artifactId>
+      <version>${restassured.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JSON Schema Validator -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>json-schema-validator</artifactId>
+      <version>${restassured.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Jackson JSON Processing -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Surefire Plugin: Parameterized browser/env + Include/Exclude naming conventions -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+        <configuration>
+          <systemPropertyVariables>
+            <browser>${browser}</browser>
+            <baseUrl>${baseUrl}</baseUrl>
+          </systemPropertyVariables>
+          <includes>
+            <include>**/*SmokeTest.java</include>
+            <include>**/*RegressionTest.java</include>
+            <include>**/*ApiTest.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/*IgnoreTest.java</exclude>
+          </excludes>
+          <!-- Optional: uncomment if you use a TestNG suite XML file -->
+          <!--
+          <suiteXmlFiles>
+            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+          -->
+        </configuration>
+      </plugin>
+
+      <!-- Custom Lifecycle Task: Clean up log files after test execution -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.5.0</version>
+        <executions>
+          <execution>
+            <id>cleanup-logs-after-tests</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <configuration>
+              <excludeDefaultDirectories>true</excludeDefaultDirectories>
+              <filesets>
+                <fileset>
+                  <directory>${project.basedir}/logs</directory>
+                  <includes>
+                    <include>**/*.log</include>
+                  </includes>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <!-- Generate HTML Test Reports -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>${surefire.version}</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <profiles>
+    <!-- Default Active Profile -->
+    <profile>
+      <id>qa</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <browser>chrome</browser>
+        <baseUrl>https://qa.example.com</baseUrl>
+      </properties>
+    </profile>
+
+    <!-- Staging Profile -->
+    <profile>
+      <id>staging</id>
+      <properties>
+        <browser>firefox</browser>
+        <baseUrl>https://staging.example.com</baseUrl>
+      </properties>
+    </profile>
+  </profiles>
+</project>

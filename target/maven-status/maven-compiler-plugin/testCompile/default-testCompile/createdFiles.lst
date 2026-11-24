@@ -1,0 +1,10 @@
+mavenpackage\EnvironmentConfig.class
+mavenpackage\LoginInvalidCredentialsSmokeTest.class
+mavenpackage\LoginLockedAccountIgnoreTest.class
+EPAMTASKS\EPAMTASKS\jira_issue.class
+EPAMTASKS\EPAMTASKS\Shadowdom.class
+mavenpackage\LoginSsoLegacyIgnoreTest.class
+EPAMTASKS\EPAMTASKS\InfiniteScroll.class
+mavenpackage\LoginSmokeTest.class
+mavenpackage\LoginRememberMeRegressionTest.class
+EPAMTASKS\EPAMTASKS\ExtentReportManager.class

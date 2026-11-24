@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="EPAMTASKS Automation Suite" verbose="1">
+  <test name="Shadow DOM and UI Tests">
+    <classes>
+      <!-- Replace or add your package name if Shadowdom is inside a package, e.g., EPAMTASKS.Shadowdom -->
+      <class name="Shadowdom"/>
+    </classes>
+  </test>
+</suite>

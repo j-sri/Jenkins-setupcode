@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-11-24T22:29:02 IST" name="Surefire suite" finished-at="2026-11-24T22:29:03 IST" duration-ms="201">
+    <groups>
+    </groups>
+    <test started-at="2026-11-24T22:29:02 IST" name="Surefire test" finished-at="2026-11-24T22:29:03 IST" duration-ms="201">
+      <class name="mavenpackage.LoginInvalidCredentialsSmokeTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:mavenpackage.LoginInvalidCredentialsSmokeTest@2ed0fbae]" started-at="2026-11-24T22:29:03 IST" name="setUp" finished-at="2026-11-24T22:29:03 IST" duration-ms="58" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyInvalidPasswordShowsError()[pri:0, instance:mavenpackage.LoginInvalidCredentialsSmokeTest@2ed0fbae]" started-at="2026-11-24T22:29:03 IST" name="verifyInvalidPasswordShowsError" finished-at="2026-11-24T22:29:03 IST" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInvalidPasswordShowsError -->
+      </class> <!-- mavenpackage.LoginInvalidCredentialsSmokeTest -->
+      <class name="mavenpackage.LoginRememberMeRegressionTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:mavenpackage.LoginRememberMeRegressionTest@327b636c]" started-at="2026-11-24T22:29:03 IST" name="setUp" finished-at="2026-11-24T22:29:03 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyRememberMePersistsSession()[pri:0, instance:mavenpackage.LoginRememberMeRegressionTest@327b636c]" started-at="2026-11-24T22:29:03 IST" name="verifyRememberMePersistsSession" finished-at="2026-11-24T22:29:03 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRememberMePersistsSession -->
+      </class> <!-- mavenpackage.LoginRememberMeRegressionTest -->
+      <class name="mavenpackage.LoginSmokeTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:mavenpackage.LoginSmokeTest@45dd4eda]" started-at="2026-11-24T22:29:03 IST" name="setUp" finished-at="2026-11-24T22:29:03 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyValidLoginSmoke()[pri:0, instance:mavenpackage.LoginSmokeTest@45dd4eda]" started-at="2026-11-24T22:29:03 IST" name="verifyValidLoginSmoke" finished-at="2026-11-24T22:29:03 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidLoginSmoke -->
+      </class> <!-- mavenpackage.LoginSmokeTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
