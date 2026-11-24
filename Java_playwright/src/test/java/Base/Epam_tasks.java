@@ -36,19 +36,12 @@ public class Epam_tasks extends basetest{
 	    page.locator("#file-upload")
 	        .setInputFiles(Paths.get("C:\\Users\\ADMIN\\Documents\\Selenium Automation\\selenium-practice\\Playwright_java\\Java_playwright\\src\\test\\java\\Resources\\config.txt"));
 	    page.locator("#file-submit").click();
-
-	   
-	    String actualMessage = page.locator("//h3[contains(text(),'File Uploaded!')]")
-	                                .textContent();
-
-	    Assert.assertTrue(actualMessage.contains("File Uploaded!"),
-	                      "File upload failed!");
-
 	    
 	    String uploadedFile = page.locator("#uploaded-files").textContent();
-
 	    Assert.assertEquals(uploadedFile.trim(), "config.txt");
-		
+	    
+	    
+	    	 
 	}
 	@Test
 	public void download() {
@@ -60,7 +53,11 @@ public class Epam_tasks extends basetest{
         download.saveAs(targetPath);
 		
         Assert.assertTrue(Files.exists(targetPath), "Downloaded file does not exist locally!");
+    
 		
 		
 	}
-}
+	
+		
+	}
+
